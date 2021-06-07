@@ -11,7 +11,6 @@ const App = () => {
         <Menu/>
         <div className={'content_wrapper'}>
           <Profile/>
-          {/*<Profile/>*/}
         </div>
       </div>
       <Footer/>
