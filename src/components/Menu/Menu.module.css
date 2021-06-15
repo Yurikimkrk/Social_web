@@ -1,17 +1,31 @@
+.menu__wrapper {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
 .menu {
   width: 170px;
   border: 1px solid #000;
-  position: absolute;
-  left: 10px;
+  position: fixed;
+  z-index: 100;
   border-radius: 10px;
   padding: 18px 0 0 20px;
-  color: azure;
   background-color: #212529;
   font-size: 1.2rem;
 }
-
 .menu div {
   margin-bottom: 30px;
+}
+.menu a {
+  color: azure;
+}
+.menu a:hover {
+  color: darkgray;
+}
+.menu .active {
+  color: gray;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=Menu.module.css.map */

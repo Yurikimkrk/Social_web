@@ -1,0 +1,66 @@
+.texts__block {
+  width: calc(70% - 10px);
+}
+.texts__block button {
+  margin: 15px 0;
+  border: 1px solid #000;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: #212529;
+  color: white;
+}
+.texts__block button:hover {
+  background-color: black;
+}
+.texts__block button:active {
+  background-color: darkblue;
+}
+
+.texts__el {
+  border-radius: 10px;
+  border: 1px solid darkgray;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.texts__item {
+  display: flex;
+  height: 55px;
+  padding: 6px;
+  align-items: center;
+}
+.texts__item img {
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.texts__item div {
+  padding-left: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+a:last-child {
+  border-bottom: none;
+  height: 44px;
+}
+
+.texts__input {
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid darkgray;
+  background-color: ghostwhite;
+  flex: 1 1 auto;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=Texts.module.css.map */

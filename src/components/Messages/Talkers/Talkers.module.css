@@ -1,0 +1,40 @@
+.talkers {
+  min-height: 200px;
+  width: calc(30% - 15px);
+  border-radius: 10px;
+  border: 1px solid darkgray;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.talkers__item {
+  display: flex;
+  height: 45px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 9px;
+  align-items: center;
+}
+.talkers__item img {
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.talkers__item div {
+  padding-left: 10px;
+  color: black;
+}
+
+.talkers__item:hover {
+  background-color: azure;
+}
+
+.talkers__item:last-child {
+  border-bottom: none;
+  height: 44px;
+}
+
+/*# sourceMappingURL=Talkers.module.css.map */

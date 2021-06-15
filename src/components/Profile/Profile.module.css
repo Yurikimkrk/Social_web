@@ -1,5 +1,6 @@
 .profile {
   display: flex;
+  margin-bottom: 15px;
 }
 
 .profile__photo {
