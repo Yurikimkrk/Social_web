@@ -16,7 +16,7 @@ const TalkersItem = (props) => {
 }
 
 const Talkers = (props) => {
-  let talkersElements = props.talkers.map(t => <TalkersItem name={t.name} id={t.id}/>)
+  let talkersElements = props.talkers.map(t => <TalkersItem name={t.name} id={t.id} key={t.id}/>)
   return (
     <div className={s.talkers}>
       {talkersElements}

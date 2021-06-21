@@ -1,7 +1,7 @@
 import s from "./Texts.module.css"
 import cat from "../../../img/ava2.jpg"
 import {createRef} from "react"
-import {sendMessageAC, updateMessageTextAC} from "../../../redux/state"
+
 
 const TextsItem = (props) => {
   return (
@@ -15,25 +15,29 @@ const TextsItem = (props) => {
 }
 
 const Texts = (props) => {
-  let textsElements = props.texts.map(t => <TextsItem text={t.text}/>)
+  let textsElements = props.texts.map(t => <TextsItem text={t.text} key={t.id}/>)
   let newElement = createRef()
-  let sendMessage = () => {
-    props.dispatch(sendMessageAC())
+
+  let onSendMessage = () => {
+    props.sendMessage()
   }
 
   let onMessageChange = () => {
-    props.dispatch(updateMessageTextAC(newElement.current.value))
+    props.onMessageChange(newElement.current.value)
   }
+
+
   return (
     <div className={s.texts__block}>
       <div className={s.texts__el}>
         {textsElements}
       </div>
       <textarea className={s.texts__input} ref={newElement} rows='2'
-                  placeholder='Написать сообщение' value={props.messageText}
-                  onChange={onMessageChange}>
+                placeholder='Написать сообщение' value={props.messageText}
+                onChange={onMessageChange}
+      >
       </textarea>
-      <button onClick={sendMessage}>Отправить</button>
+      <button onClick={onSendMessage}>Отправить</button>
 
     </div>
 

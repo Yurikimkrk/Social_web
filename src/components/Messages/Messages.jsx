@@ -1,6 +1,6 @@
 import s from "./Messages.module.css"
 import Talkers from "./Talkers/Talkers"
-import Texts from "./Texts/Texts";
+import Texts from "./Texts/Texts"
 
 
 const Messages = (props) => {
@@ -9,7 +9,8 @@ const Messages = (props) => {
       <Talkers talkers={props.messages.talkers}/>
       <Texts texts={props.messages.texts}
              messageText={props.messages.messageText}
-             dispatch={props.dispatch}/>
+             onMessageChange={props.onMessageChange}
+             sendMessage={props.sendMessage}/>
     </div>
   )
 }

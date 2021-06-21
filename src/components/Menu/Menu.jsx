@@ -9,8 +9,9 @@ const Menu = () => {
         <div><NavLink to="/profile" activeClassName={s.active}>Мой профиль</NavLink></div>
         <div><NavLink to="/messages" activeClassName={s.active}>Сообщения</NavLink></div>
         <div><NavLink to="/posts" activeClassName={s.active}>Новости</NavLink></div>
+        <div><NavLink to="/users" activeClassName={s.active}>Участники</NavLink></div>
+        <div><NavLink to="/friends" activeClassName={s.active}>Мои друзья</NavLink></div>
         <div><NavLink to="/photo" activeClassName={s.active}>Фото</NavLink></div>
-        <div><NavLink to="/friends" activeClassName={s.active}>Друзья</NavLink></div>
         <div><NavLink to="/settings" activeClassName={s.active}>Настройки</NavLink></div>
       </div>
     </div>

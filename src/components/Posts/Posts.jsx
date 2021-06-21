@@ -2,21 +2,22 @@ import s from "./Posts.module.css"
 import total from "../../img/total.jpg"
 import Post from "./Post/Post"
 import {createRef} from "react"
-import {addPostAC, updatePostTextAC} from "../../redux/state"
+
 
 
 const Posts = (props) => {
+  debugger
   let postsElements = props.posts.posts
-    .map(p => <Post text={p.text} likes={p.likes} comments={p.comments}/>)
+    .map(p => <Post text={p.text} likes={p.likes} comments={p.comments} key={p.id}/>)
 
   let newElement = createRef()
 
-  let addNewPost = () => {
-    props.dispatch(addPostAC())
+  let onAddNewPost = () => {
+    props.addNewPost()
   }
 
   let onPostChange = () => {
-    props.dispatch(updatePostTextAC(newElement.current.value))
+    props.updatePostText(newElement.current.value)
   }
 
   return (
@@ -29,7 +30,7 @@ const Posts = (props) => {
                   placeholder='Что у вас нового?' value={props.posts.postTexts}
                   onChange={onPostChange}>
         </textarea>
-        <button onClick={addNewPost}>Опубликовать</button>
+        <button onClick={onAddNewPost}>Опубликовать</button>
       </div>
       <div className={s.posts}>
         {postsElements}
