@@ -1,8 +1,10 @@
 import s from "./Header.module.css"
 import logo from "../../img/logo.svg"
-import total from "../../img/total.jpg"
+import def_ava from "../../img/default_small.jpeg"
+import Preloader from "../Preloader/preloader"
 
-const Header = () => {
+
+const Header = (props) => {
   return (
     <div className={s.header}>
       <div className={s.header__row}>
@@ -15,16 +17,17 @@ const Header = () => {
           </div>
         </div>
         <div className={s.header__name_info}>
-          Social web
+          {/*Social web*/}
         </div>
-        <div className={s.header__user}>
+        {(props.isAuth) ? <div className={s.header__user}>
           <div className={s.header__username}>
-            Total
+            {props.login}
           </div>
           <div className={s.header__useravatar}>
-            <img src={total} alt=""/>
+            {(props.user)? <img src={props.user.photos.small ?
+              props.user.photos.small : def_ava} alt=""/> :<Preloader/>}
           </div>
-        </div>
+        </div> : <button>Вход</button>}
       </div>
     </div>
   )

@@ -1,13 +1,14 @@
 import s from "./Profile.module.css"
-import total from "../../img/total.jpg"
+import friend from "../../img/friend.jpg"
 
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={s.profile}>
       <div className={s.profile__photo}>
         <div className={s.profile__img_box}>
-          <img className={s.profile__img} src={total} alt=""/>
+          <img className={s.profile__img}
+               src={props.profile.photos.large ? props.profile.photos.large : friend} alt=''/>
         </div>
         <button className={s.profile__editbutton}>
           Редактировать профиль
@@ -16,7 +17,7 @@ const Profile = () => {
       <div className={s.profile__info}>
         <div className={s.profile__fullname_block}>
           <div className={s.profile__fullname}>
-            Юрий Ким
+            {props.profile.fullName}
           </div>
           <div className={s.profile__status}>
             online

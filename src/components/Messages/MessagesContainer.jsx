@@ -1,6 +1,8 @@
 import Messages from "./Messages"
-import {sendMessageAC, updateMessageTextAC} from "../../redux/messages-reducer"
+import {sendMessage, onMessageChange} from "../../redux/messages-reducer"
 import {connect} from "react-redux"
+import {compose} from "redux"
+import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 
 
 let mapStateToProps = (state) => {
@@ -8,17 +10,9 @@ let mapStateToProps = (state) => {
     messages: state.messagesPage
   }
 }
-let mapDispatchToProps = (dispatch) => {
-  return {
-    onMessageChange: (text) => {
-      dispatch(updateMessageTextAC(text))
-    },
-    sendMessage: () => {
-      dispatch(sendMessageAC())
-    }
-  }
-}
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
 
-export default MessagesContainer
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {onMessageChange, sendMessage})
+)(Messages)

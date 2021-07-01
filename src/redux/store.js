@@ -1,4 +1,4 @@
-import postsReducer from "./posts-reducer";
+import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 
 let store = {
@@ -46,7 +46,7 @@ let store = {
   },
 
   dispatch(action) {
-    this._state.posts = postsReducer(this._state.posts, action)
+    this._state.posts = profileReducer(this._state.posts, action)
     this._state.messages = messagesReducer(this._state.messages, action)
     this._renderTree(this._state)
   }
