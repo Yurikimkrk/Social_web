@@ -8,7 +8,6 @@ let initialState = {
     },
     {id: 2, text: 'Это пост номер 2, живи с этим', likes: 9, comments: 2},
   ],
-  postTexts: '',
   profile: null,
   status: ''
 }
@@ -17,23 +16,15 @@ const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case "ADD-POST":
-      if (state.postTexts) {
-        let newPost = {
-          id: state.posts.length + 1,
-          text: state.postTexts,
-          likes: 0,
-          comments: 0
-        }
-        return {
-          ...state,
-          postTexts: "",
-          posts: [...state.posts, newPost]
-        }
-      } else return state
-    case "UPDATE-POST-TEXT":
+      let newPost = {
+        id: state.posts.length + 1,
+        text: action.postInput,
+        likes: 0,
+        comments: 0
+      }
       return {
         ...state,
-        postTexts: action.newText
+        posts: [...state.posts, newPost]
       }
     case "SET-USER-PROFILE":
       return {
@@ -50,8 +41,7 @@ const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addNewPost = () => ({type: 'ADD-POST'})
-export const updatePostText = (text) => ({type: 'UPDATE-POST-TEXT', newText: text})
+export const addNewPost = (postInput) => ({type: 'ADD-POST', postInput})
 export const setUserProfile = (profile) => ({type: 'SET-USER-PROFILE', profile})
 export const setStatus = (status) => ({type: 'SET-STATUS', status})
 export const getProfile = (userId) => (dispatch) => {

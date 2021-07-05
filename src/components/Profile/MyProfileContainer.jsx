@@ -1,6 +1,6 @@
 import {
   addNewPost, getProfile, getStatus, setStatus,
-  setUserProfile, updatePostText, updateStatus,
+  setUserProfile,updateStatus,
 } from "../../redux/profile-reducer"
 import {connect} from "react-redux"
 import {Component} from "react"
@@ -22,8 +22,6 @@ const ProfileContainer = (props) => {
     <Status status={props.status} updateStatus={props.updateStatus}/>
     <Posts posts={props.posts}
            addNewPost={props.addNewPost}
-           updatePostText={props.updatePostText}
-           postTexts={props.postTexts}
            profile={props.profile}/>
 
   </div>
@@ -48,7 +46,6 @@ class MyProfileContainer extends Component {
 let mapStateToProps = (state) => {
   return {
     posts: state.profilePage.posts,
-    postTexts: state.profilePage.postTexts,
     profile: state.profilePage.profile,
     status: state.profilePage.status
   }
@@ -56,7 +53,7 @@ let mapStateToProps = (state) => {
 
 export default compose(
   withAuthRedirect,
-  connect(mapStateToProps, {updatePostText, addNewPost,
+  connect(mapStateToProps, {addNewPost,
     setUserProfile, setStatus, updateStatus, getProfile, getStatus}),
   withRouter
 )(MyProfileContainer)

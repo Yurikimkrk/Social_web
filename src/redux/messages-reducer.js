@@ -15,36 +15,26 @@ let initialState = {
     {id: 1, text: "Привет, как дела"},
     {id: 2, text: "Всё отлично"},
     {id: 3, text: "У меня тоже всё хорошо"}
-  ],
-  messageText: ''
+  ]
 }
 
 const messagesReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case "SEND-MESSAGE":
-      if (state.messageText) {
-        let newMessage = {
-          id: state.texts.length + 1,
-          text: state.messageText,
-        }
-        return {
-          ...state,
-          messageText: "",
-          texts: [...state.texts, newMessage]
-        }
-      } else return state
-    case "UPDATE-MESSAGE-TEXT":
+      let newMessage = {
+        id: state.texts.length + 1,
+        text: action.messageInput
+      }
       return {
         ...state,
-        messageText: action.newMessageText
+        texts: [...state.texts, newMessage]
       }
     default:
       return state
   }
 }
 
-export const sendMessage = () => ({type: 'SEND-MESSAGE'})
-export const onMessageChange = (text) => ({type: 'UPDATE-MESSAGE-TEXT', newMessageText: text})
+export const sendMessage = (messageInput) => ({type: 'SEND-MESSAGE', messageInput})
 
 export default messagesReducer

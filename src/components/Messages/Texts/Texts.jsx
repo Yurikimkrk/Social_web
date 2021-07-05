@@ -1,6 +1,6 @@
 import s from "./Texts.module.css"
 import cat from "../../../img/ava2.jpg"
-import {createRef} from "react"
+import {Field, reduxForm} from "redux-form"
 
 
 const TextsItem = (props) => {
@@ -14,16 +14,24 @@ const TextsItem = (props) => {
   )
 }
 
+const MessageInputForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+        <Field className={s.texts__input} rows='2'
+               placeholder='Написать сообщение'  name='messageInput'
+               component='textarea'/>
+      <button>Отправить</button>
+    </form>
+  )
+}
+
+const MessageInputReduxForm = reduxForm({form: 'messageInput'})(MessageInputForm)
+
 const Texts = (props) => {
   let textsElements = props.texts.map(t => <TextsItem text={t.text} key={t.id}/>)
-  let newElement = createRef()
 
-  let onSendMessage = () => {
-    props.sendMessage()
-  }
-
-  let onMessageChange = () => {
-    props.onMessageChange(newElement.current.value)
+  let addNewMessage = (values) => {
+    props.sendMessage(values.messageInput)
   }
 
 
@@ -32,13 +40,7 @@ const Texts = (props) => {
       <div className={s.texts__el}>
         {textsElements}
       </div>
-      <textarea className={s.texts__input} ref={newElement} rows='2'
-                placeholder='Написать сообщение' value={props.messageText}
-                onChange={onMessageChange}
-      >
-      </textarea>
-      <button onClick={onSendMessage}>Отправить</button>
-
+      <MessageInputReduxForm onSubmit={addNewMessage}/>
     </div>
 
   )

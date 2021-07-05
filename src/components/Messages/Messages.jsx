@@ -8,8 +8,6 @@ const Messages = (props) => {
     <div className={s.messages}>
       <Talkers talkers={props.messages.talkers}/>
       <Texts texts={props.messages.texts}
-             messageText={props.messages.messageText}
-             onMessageChange={props.onMessageChange}
              sendMessage={props.sendMessage}/>
     </div>
   )

@@ -1,4 +1,4 @@
-import {getMe, getProfileAPI} from "../API/api"
+import {getMe, getProfileAPI, loginAPI, logoutAPI} from "../API/api"
 
 let initialState = {
   id: null,
@@ -15,7 +15,6 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.auth,
-        isAuth: true
       }
     case "SET-AUTH-USER-PROFILE":
       return {
@@ -27,7 +26,8 @@ const authReducer = (state = initialState, action) => {
   }
 }
 
-export const setAuthUserData = (id, login, email) => ({type: 'SET-AUTH', auth: {id, login, email}})
+export const setAuthUserData = (id, login, email, isAuth) => ({type: 'SET-AUTH',
+  auth: {id, login, email, isAuth}})
 export const setAuthUserProfile = (user) => ({type: 'SET-AUTH-USER-PROFILE', user})
 
 export const getAuthUserData = () => (dispatch) => {
@@ -35,14 +35,31 @@ export const getAuthUserData = () => (dispatch) => {
     .then(response => {
       if (response.resultCode === 0) {
         let {id, login, email} = response.data
-        dispatch(setAuthUserData(id, login, email))
+        dispatch(setAuthUserData(id, login, email, true))
         getProfileAPI(id)
           .then(response => {
             dispatch(setAuthUserProfile(response))
           })
       }
     })
+}
 
+export const login = (email, password, rememberMe) => (dispatch) => {
+  loginAPI(email, password, rememberMe)
+    .then(response => {
+      if (response.resultCode === 0) {
+        dispatch(getAuthUserData())
+      }
+    })
+}
+
+export const logout = () => (dispatch) => {
+  logoutAPI()
+    .then(response => {
+      if (response.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false))
+      }
+    })
 }
 
 export default authReducer

@@ -23,7 +23,7 @@ const Header = (props) => {
           <div className={s.header__username}>
             {props.login}
           </div>
-          <div className={s.header__useravatar}>
+          <div className={s.header__useravatar} onClick={props.logout}>
             {(props.user)? <img src={props.user.photos.small ?
               props.user.photos.small : def_ava} alt=""/> :<Preloader/>}
           </div>

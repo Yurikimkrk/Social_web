@@ -22,6 +22,12 @@ export const follow = (userId) => instance.post(`follow/${userId}`)
 
 export const getMe = () => instance.get(`auth/me`).then(response => (response.data))
 
+export const loginAPI = (email, password, rememberMe = false) => {
+  return instance.post(`auth/login`, {email, password, rememberMe})
+}
+
+export const logoutAPI = () => instance.delete(`auth/login`).then(response => (response.data))
+
 export const getStatusAPI = (userId) => {
   return instance.get(`profile/status/${userId}`).then(response => (response.data))
 }
