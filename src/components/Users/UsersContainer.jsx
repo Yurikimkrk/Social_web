@@ -4,9 +4,8 @@ import {connect} from "react-redux"
 import {Component} from "react"
 import Preloader from "../Preloader/preloader"
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-import {addNewPost, setUserProfile, updatePostText} from "../../redux/profile-reducer";
-import {withRouter} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect"
+
 
 
 class UsersContainer extends Component {

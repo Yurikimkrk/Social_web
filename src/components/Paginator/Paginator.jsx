@@ -1,8 +1,8 @@
 import s from "./Paginator.module.css"
 
 
-let Paginator = (props) => {
-  let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
+let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged,...props}) => {
+  let pageCount = Math.ceil(totalUsersCount / pageSize)
   let pages = []
   for (let i = 1; i <= pageCount; i++) {
     pages.push(i)
@@ -10,9 +10,9 @@ let Paginator = (props) => {
   return <div>
     <div className={s.pagination}>
       <div className={s.pagination__content}>
-        {pages.map(p => <button key={p} className={props.currentPage === p ? s.selected : undefined}
+        {pages.map(p => <button key={p} className={currentPage === p ? s.selected : undefined}
                                 onClick={(e) => {
-                                  props.onPageChanged(p)
+                                  onPageChanged(p)
                                 }}>{p}</button>)}
       </div>
     </div>

@@ -2,7 +2,7 @@ import {getUsersAPI, follow as followAPI, unfollow as unfollowAPI} from "../API/
 
 let initialState = {
   users: [],
-  pageSize: 8,
+  pageSize: 6,
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: false,
@@ -64,6 +64,7 @@ export const toggleFollowingProgress = (followingInProgress, userId) => ({
 })
 
 export const getUsers = (currentPage, pageSize) => (dispatch) => {
+  debugger
   dispatch(toggleFetching(true))
   getUsersAPI(currentPage, pageSize)
     .then(response => {
@@ -83,7 +84,6 @@ export const follow = (userId) => (dispatch) => {
       }
       dispatch(toggleFollowingProgress(false, userId))
     })
-
 }
 
 export const unfollow = (userId) => (dispatch) => {
@@ -95,7 +95,6 @@ export const unfollow = (userId) => (dispatch) => {
       }
       dispatch(toggleFollowingProgress(false, userId))
     })
-
 }
 
 export default usersReducer
