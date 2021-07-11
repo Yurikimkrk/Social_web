@@ -9,7 +9,6 @@ class Status extends Component {
     status: this.props.status
   }
   activateEditMode = () => {
-    debugger
     this.setState({
       editMode: true
     })

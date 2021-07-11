@@ -6,7 +6,7 @@ let initialState = {
       id: 1, text: 'Какая же красивая тут природа, просто диву даешься. Кто не лайкает, тот не любит природу. Фу' +
         ' такими быть', likes: 28, comments: 6
     },
-    {id: 2, text: 'Это пост номер 2, живи с этим', likes: 9, comments: 2},
+    {id: 2, text: 'Это пост номер 2, живи с этим', likes: 9, comments: 2}
   ],
   profile: null,
   status: ''
@@ -47,15 +47,16 @@ export const setStatus = (status) => ({type: 'SET-STATUS', status})
 export const getProfile = (userId) => (dispatch) => {
   getProfileAPI(userId).then(response => (dispatch(setUserProfile(response))))
 }
-export const getStatus = (userId) => (dispatch) => {
-  getStatusAPI(userId).then(response => (dispatch(setStatus(response))))
+export const getStatus = (userId) => async (dispatch) => {
+  let response = await getStatusAPI(userId)
+  dispatch(setStatus(response))
 }
-export const updateStatus = (status) => (dispatch) => {
-  updateStatusAPI(status).then(response => {
-    if (response.resultCode === 0) {
-      dispatch(setStatus(status))
-    }
-  })
+
+export const updateStatus = (status) => async (dispatch) => {
+  let response = await updateStatusAPI(status)
+  if (response.resultCode === 0) {
+    dispatch(setStatus(status))
+  }
 }
 
 export default profileReducer

@@ -1,24 +1,16 @@
 import s from "./Users.module.css"
 import friend from "../../img/friend.jpg"
 import {NavLink} from "react-router-dom"
+import Paginator from "../Paginator/Paginator"
 
 
 let Users = (props) => {
-  let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
-  let pages = []
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i)
-  }
 
   return <div>
-    <div className={s.pagination}>
-      <div className={s.pagination__content}>
-        {pages.map(p => <button key={p} className={props.currentPage === p ? s.selected : undefined}
-                                onClick={(e) => {
-                                  props.onPageChanged(p)
-                                }}>{p}</button>)}
-      </div>
-    </div>
+    <Paginator totalUsersCount={props.totalUsersCount}
+               pageSize={props.pageSize}
+               currentPage={props.currentPage}
+               onPageChanged={props.onPageChanged} />
     {props.users.map(u =>
       <div className={s.users__block} key={u.id}>
         <div className={s.user}>

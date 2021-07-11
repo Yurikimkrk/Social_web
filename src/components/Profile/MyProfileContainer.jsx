@@ -10,7 +10,7 @@ import Preloader from "../Preloader/preloader"
 import {withRouter} from 'react-router-dom'
 import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
-import Status from "./Status/Status"
+import StatusHooks from "./Status/StatusHooks";
 
 
 const ProfileContainer = (props) => {
@@ -19,7 +19,7 @@ const ProfileContainer = (props) => {
   }
   return <div>
     <Profile profile={props.profile}/>
-    <Status status={props.status} updateStatus={props.updateStatus}/>
+    <StatusHooks status={props.status} updateStatus={props.updateStatus}/>
     <Posts posts={props.posts}
            addNewPost={props.addNewPost}
            profile={props.profile}/>

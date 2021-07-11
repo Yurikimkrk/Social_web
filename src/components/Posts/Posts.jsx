@@ -1,7 +1,5 @@
 import s from "./Posts.module.css"
-import def_ava from "../../img/default_small.jpeg"
 import Post from "./Post/Post"
-import Preloader from "../Preloader/preloader"
 import {Field, reduxForm} from "redux-form"
 import {maxLengthCreator, required} from "../../validators/validators"
 import {Textarea} from "../FormControls/FormControls"
@@ -27,6 +25,7 @@ const PostForm = (props) => {
 const PostReduxForm = reduxForm({form: 'postInput'})(PostForm)
 
 const Posts = (props) => {
+
   let postsElements = props.posts
     .map(p => <Post text={p.text} likes={p.likes} comments={p.comments} key={p.id}/>)
 
