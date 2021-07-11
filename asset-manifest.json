@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/Social_web/static/css/main.a968c5a4.chunk.css",
+    "main.js": "/Social_web/static/js/main.3a842916.chunk.js",
+    "main.js.map": "/Social_web/static/js/main.3a842916.chunk.js.map",
+    "runtime-main.js": "/Social_web/static/js/runtime-main.a5d59e69.js",
+    "runtime-main.js.map": "/Social_web/static/js/runtime-main.a5d59e69.js.map",
+    "static/js/2.690857f5.chunk.js": "/Social_web/static/js/2.690857f5.chunk.js",
+    "static/js/2.690857f5.chunk.js.map": "/Social_web/static/js/2.690857f5.chunk.js.map",
+    "static/css/3.cd18336d.chunk.css": "/Social_web/static/css/3.cd18336d.chunk.css",
+    "static/js/3.4745b8f3.chunk.js": "/Social_web/static/js/3.4745b8f3.chunk.js",
+    "static/js/3.4745b8f3.chunk.js.map": "/Social_web/static/js/3.4745b8f3.chunk.js.map",
+    "static/js/4.aa81cd3f.chunk.js": "/Social_web/static/js/4.aa81cd3f.chunk.js",
+    "static/js/4.aa81cd3f.chunk.js.map": "/Social_web/static/js/4.aa81cd3f.chunk.js.map",
+    "index.html": "/Social_web/index.html",
+    "static/css/3.cd18336d.chunk.css.map": "/Social_web/static/css/3.cd18336d.chunk.css.map",
+    "static/css/main.a968c5a4.chunk.css.map": "/Social_web/static/css/main.a968c5a4.chunk.css.map",
+    "static/js/2.690857f5.chunk.js.LICENSE.txt": "/Social_web/static/js/2.690857f5.chunk.js.LICENSE.txt",
+    "static/media/ava1.80a9daee.jpg": "/Social_web/static/media/ava1.80a9daee.jpg",
+    "static/media/ava2.7e7b7b8e.jpg": "/Social_web/static/media/ava2.7e7b7b8e.jpg",
+    "static/media/comment.2b731f9b.svg": "/Social_web/static/media/comment.2b731f9b.svg",
+    "static/media/default_small.a246ddc1.jpeg": "/Social_web/static/media/default_small.a246ddc1.jpeg",
+    "static/media/friend.3232cee7.jpg": "/Social_web/static/media/friend.3232cee7.jpg",
+    "static/media/heart.c2bf5c20.svg": "/Social_web/static/media/heart.c2bf5c20.svg",
+    "static/media/logo.7f61c9b4.svg": "/Social_web/static/media/logo.7f61c9b4.svg",
+    "static/media/post1.ec505fba.jpg": "/Social_web/static/media/post1.ec505fba.jpg",
+    "static/media/spinner.f598f470.svg": "/Social_web/static/media/spinner.f598f470.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a5d59e69.js",
+    "static/js/2.690857f5.chunk.js",
+    "static/css/main.a968c5a4.chunk.css",
+    "static/js/main.3a842916.chunk.js"
+  ]
+}
