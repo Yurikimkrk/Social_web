@@ -49,7 +49,7 @@
 
 .profile__status
   margin: 15px 25px 15px auto
-  color: rgba(0,0,0,0.4)
+  color: rgba(0, 0, 0, 0.4)
   font-style: italic
 
 .profile__userdata_block
@@ -72,14 +72,54 @@
   display: flex
   margin: 20px 10px 10px 30px
   font-size: 0.8rem
+  flex-direction: column
+  button
+    margin-bottom: 20px
 
+.profile__userdata_unit
+  display: flex
+  margin: 7px 0
+  a
+    color: black
 
 .profile__userdata_key
-  color: rgba(0,0,0,0.5)
+  color: rgba(0, 0, 0, 0.5)
+  width: 100px
+
   div
     padding-bottom: 15px
 
 .profile__userdata_value
   flex: 1 1 auto
-  div
-    padding: 0 0 15px 65px
+  margin-left: 15px
+  input
+    border: 1px solid #000
+    width: 300px
+
+.upload__input
+  display: none
+
+.upload__photo
+  margin-top: 15px
+  position: relative
+  overflow: hidden
+  width: 250px
+  height: 40px
+  background: #212529
+  border-radius: 10px
+  color: #fff
+  text-align: center
+  label
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    cursor: pointer
+  span
+    line-height: 40px
+    font-weight: bold
+
+.upload__photo:hover
+  background: darkslateblue

@@ -80,10 +80,23 @@
   display: flex;
   margin: 20px 10px 10px 30px;
   font-size: 0.8rem;
+  flex-direction: column;
+}
+.profile__userdata button {
+  margin-bottom: 20px;
+}
+
+.profile__userdata_unit {
+  display: flex;
+  margin: 7px 0;
+}
+.profile__userdata_unit a {
+  color: black;
 }
 
 .profile__userdata_key {
   color: rgba(0, 0, 0, 0.5);
+  width: 100px;
 }
 .profile__userdata_key div {
   padding-bottom: 15px;
@@ -91,9 +104,44 @@
 
 .profile__userdata_value {
   flex: 1 1 auto;
+  margin-left: 15px;
 }
-.profile__userdata_value div {
-  padding: 0 0 15px 65px;
+.profile__userdata_value input {
+  border: 1px solid #000;
+  width: 300px;
+}
+
+.upload__input {
+  display: none;
+}
+
+.upload__photo {
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  height: 40px;
+  background: #212529;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+.upload__photo label {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.upload__photo span {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.upload__photo:hover {
+  background: darkslateblue;
 }
 
 /*# sourceMappingURL=Profile.module.css.map */

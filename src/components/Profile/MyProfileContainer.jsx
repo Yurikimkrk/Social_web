@@ -1,6 +1,6 @@
 import {
-  addNewPost, getProfile, getStatus, setStatus,
-  setUserProfile,updateStatus,
+  addNewPost, getProfile, getStatus, savePhoto, setStatus,
+  setUserProfile, saveProfileData, updateStatus
 } from "../../redux/profile-reducer"
 import {connect} from "react-redux"
 import {Component} from "react"
@@ -10,7 +10,7 @@ import Preloader from "../Preloader/preloader"
 import {withRouter} from 'react-router-dom'
 import {compose} from "redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
-import StatusHooks from "./Status/StatusHooks";
+import StatusHooks from "./Status/StatusHooks"
 
 
 const ProfileContainer = (props) => {
@@ -18,7 +18,8 @@ const ProfileContainer = (props) => {
     return <Preloader/>
   }
   return <div>
-    <Profile profile={props.profile}/>
+    <Profile profile={props.profile} isOwner={props.isOwner}
+             savePhoto={props.savePhoto} saveProfileData={props.saveProfileData}/>
     <StatusHooks status={props.status} updateStatus={props.updateStatus}/>
     <Posts posts={props.posts}
            addNewPost={props.addNewPost}
@@ -37,8 +38,14 @@ class MyProfileContainer extends Component {
     this.props.getStatus(userId)
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    let userId = this.props.match.params.userId
+    this.props.getProfile(userId)
+    this.props.getStatus(userId)
+  }
+
   render() {
-    return <ProfileContainer {...this.props}/>
+    return <ProfileContainer {...this.props} isOwner={(+this.props.match.params.userId === this.props.authId)}/>
   }
 }
 
@@ -47,13 +54,14 @@ let mapStateToProps = (state) => {
   return {
     posts: state.profilePage.posts,
     profile: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    authId: state.auth.id
   }
 }
 
 export default compose(
   withAuthRedirect,
-  connect(mapStateToProps, {addNewPost,
-    setUserProfile, setStatus, updateStatus, getProfile, getStatus}),
+  connect(mapStateToProps, {addNewPost, saveProfileData,
+    setUserProfile, setStatus, updateStatus, getProfile, getStatus, savePhoto}),
   withRouter
 )(MyProfileContainer)

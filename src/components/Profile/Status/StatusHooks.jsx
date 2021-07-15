@@ -36,33 +36,3 @@ const StatusHooks = (props) => {
 }
 
 export default StatusHooks
-
-
-// state = {
-//   editMode: false,
-//   status: this.props.status
-// }
-// activateEditMode = () => {
-//   debugger
-//   this.setState({
-//     editMode: true
-//   })
-// }
-// deactivateEditMode = () => {
-//   this.setState({
-//     editMode: false
-//   })
-//   this.props.updateStatus(this.state.status)
-// }
-// onStatusChange = (e) => {
-//   this.setState({
-//     status: e.currentTarget.value
-//   })
-// }
-// componentDidUpdate(prevProps, prevState, snapshot) {
-//   if (prevProps.status !== this.props.status) {
-//     this.setState({
-//       status: this.props.status
-//     })
-//   }
-// }

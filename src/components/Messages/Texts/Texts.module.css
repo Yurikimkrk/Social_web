@@ -41,12 +41,10 @@
   font-size: 0.9rem;
   opacity: 0.8;
 }
-
-a {
+.texts__item a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-a:last-child {
+.texts__item a:last-child {
   border-bottom: none;
   height: 44px;
 }

@@ -1,21 +1,20 @@
 import s from "./Posts.module.css"
 import Post from "./Post/Post"
 import {Field, reduxForm} from "redux-form"
-import {maxLengthCreator, required} from "../../validators/validators"
+import {required} from "../../validators/validators"
 import {Textarea} from "../FormControls/FormControls"
-
-const maxLength10 = maxLengthCreator(10)
+import def_ava from "../../img/def-ava.jpg"
 
 const PostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={s.posts__writenew_wrapper}>
       <div className={s.posts__writenew}>
-        {/*<div className={s.posts__avatar}>*/}
-        {/*  {(props.profile) ? <img src={props.profile.photos.small ?*/}
-        {/*    props.user.photos.small : def_ava} alt=""/> : <Preloader/>}*/}
-        {/*</div>*/}
+        <div className={s.posts__avatar}>
+          <img src={props.profile.photos.small ?
+            props.profile.photos.small : def_ava} alt=""/>
+        </div>
         <Field className={s.posts__whats_new} rows='2' placeholder='Что у вас нового?'
-               name='postInput' component={Textarea} validate={[required, maxLength10]}/>
+               name='postInput' component={Textarea} validate={[required]}/>
         <button>Опубликовать</button>
       </div>
     </form>
@@ -37,7 +36,7 @@ const Posts = (props) => {
 
   return (
     <div className={s.posts}>
-      <PostReduxForm onSubmit={addNewPost}/>
+      <PostReduxForm onSubmit={addNewPost} profile={props.profile}/>
       <div className={s.posts}>
         {postsElements}
       </div>

@@ -35,3 +35,24 @@ export const getStatusAPI = (userId) => {
 export const updateStatusAPI = (status) => {
   return instance.put(`profile/status`, {status}).then(response => (response.data))
 }
+
+export const savePhotoAPI = (photo) => {
+  const formData = new FormData()
+  formData.append('image', photo)
+  return instance.put(`profile/photo`, formData,
+    {headers: {'Content-Type': 'multipart/form-data'}})
+    .then(response => (response.data))
+}
+
+export const saveProfileDataAPI = (data) => {
+  let d = {
+    LookingForAJobDescription: false,
+    FullName: 'Total',
+    AboutMe: '---'
+  }
+  let newData = {...d, ...data}
+  console.log(newData)
+
+  return instance.put(`profile`, newData)
+    .then(response => (response.data))
+}
